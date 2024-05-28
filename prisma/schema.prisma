@@ -11,3 +11,7 @@ model Cart {
   id String @id @default(uuid())
   customerName String
 }
+
+model InboxMessage {
+  messageId String @id
+}
