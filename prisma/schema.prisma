@@ -10,8 +10,19 @@ generator client {
 model Cart {
   id String @id @default(uuid())
   customerName String
+
+  @@map("carts")
 }
 
 model InboxMessage {
   messageId String @id
+
+  @@map("incoming_messages")
+}
+
+model OutboxMessage {
+  id String @id @default(uuid())
+  message String
+
+  @@map("outgoing_messages")
 }
