@@ -13,12 +13,21 @@ export class CartRepo {
 
   public async create(params: { customerName: string }) {
     const id = v4();
-
     await this.txHost.tx.cart.create({
       data: { ...params, id },
     });
 
     return { id };
+  }
+
+  public async update(
+    cartId: string,
+    params: { customerName?: string; deleted?: boolean },
+  ) {
+    return this.prismaService.cart.update({
+      where: { id: cartId },
+      data: params,
+    });
   }
 
   public async findMany() {

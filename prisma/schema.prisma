@@ -10,7 +10,7 @@ generator client {
 model Cart {
   id String @id @default(uuid())
   customerName String
-
+  deleted Boolean @default(false)
   @@map("carts")
 }
 

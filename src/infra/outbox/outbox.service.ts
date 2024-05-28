@@ -9,10 +9,8 @@ export class OutboxService {
   ) {}
 
   public async scheduleMessages(messages: any[]): Promise<void> {
-    await this.txHost.withTransaction(async () => {
-      await this.txHost.tx.outboxMessage.createMany({
-        data: messages.map((message) => ({ message: JSON.stringify(message) })),
-      });
+    await this.txHost.tx.outboxMessage.createMany({
+      data: messages.map((message) => ({ message: JSON.stringify(message) })),
     });
   }
 }

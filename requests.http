@@ -1,0 +1,21 @@
+GET localhost:3000/carts
+
+###
+POST localhost:3000/carts
+Content-Type: application/json
+
+{
+  "customerName": "John Doe"
+}
+
+###
+GET localhost:3000/carts
+
+###
+DELETE localhost:3000/carts
+Content-Type: application/json
+
+{
+  "cartId": "c88277cc-2805-4887-a17a-5b0e758c178c",
+  "messageId": "message-1"
+}

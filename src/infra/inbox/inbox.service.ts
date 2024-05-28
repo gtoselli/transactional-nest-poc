@@ -11,9 +11,7 @@ export class InboxService {
   ) {}
 
   public async addHandledMessage(messageId: string): Promise<void> {
-    await this.txHost.withTransaction(async () => {
-      await this.txHost.tx.inboxMessage.create({ data: { messageId } });
-    });
+    await this.txHost.tx.inboxMessage.create({ data: { messageId } });
   }
 
   public async messageHandled(messageId: string): Promise<boolean> {
